@@ -1,12 +1,15 @@
-import { useState } from "react";
-import words from "./wordList.json";
+import { useState } from "react"
+import words from "./wordList.json"
+import { HangmanDrawing } from "./HangmanDrawing"
+import { HangmanWord } from "./HangmanWord"
+import { Keyboard } from "./Keyboard"
 
 function App() {
   const [wordToGuess, setWordToGuess] = useState(() => {
-    return words[Math.floor(Math.random() * words.length)];
-  });
+    return words[Math.floor(Math.random() * words.length)]
+  })
 
-  const [guessedLetter, setGuessedLetter] = useState<string[]>([]);
+  const [guessedLetter, setGuessedLetter] = useState<string[]>([])
 
   return (
     <div
@@ -25,11 +28,13 @@ function App() {
           textAlign: "center",
         }}
       >
-      
         Lose Win
       </div>
+      <HangmanDrawing />
+      <HangmanWord />
+      <Keyboard />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
